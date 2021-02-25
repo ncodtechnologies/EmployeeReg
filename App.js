@@ -1,9 +1,13 @@
 import React from 'react';
 import Register from './src/screens/Register';
+import { View} from 'react-native';
 
 function App() {
   return (
-    <Register/>
+    <View style={{flex:1}}>
+      <Register/>
+    </View>
+    
   )
 }
 

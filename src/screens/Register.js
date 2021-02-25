@@ -1,25 +1,66 @@
 import * as React from 'react';
-import {CheckBox,Text, View, StyleSheet ,Button} from 'react-native';
+import {Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import styles from '../components/styles';
-//import { Ionicons } from '@expo/vector-icons';
-const InputBox=()=>{
-  return(
-    <View style={styles.viewInputArea}>
-    <View style={styles.viewInputbox}>
-    
-      <TextInput></TextInput>
-        <View style={styles.iconview}> 
-          {/* <Ionicons name="md-checkmark-circle" size={15}                           color="#2212e2" /> */}
-          </View>
+import InputBox from '../components/txtInput';
+import {useState} from 'react';
+
+export default function App() {
+
+  const [name, setName] = useState("");
+  const [email,setEmail]=useState("");
+  const [phone,setPhone]=useState("");
+  const [password,setPassword]=useState("");
+  const [cPassword,setCpassword]=useState("");
+
+
+  const Save = () => {
+    alert(name);
+    try { 
+      fetch("https://602b5a2fef26b40017f1423a.mockapi.io/users", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            phone,
+            password,
+          }),
+      });   
+    }catch (e) {}
+  }
+
+  return (
+      <View style={styles.container}>
+       <Text style={styles.txtCreateAccount}>Create Account</Text>
+      <InputBox value={name} setValue={setName}  />
+      <InputBox  value={email} setValue={setEmail} />
+      <InputBox  value={phone} setValue={setPhone}/>
+      <InputBox  value={password} setValue={setPassword}/>
+      <InputBox  value={cPassword} setValue={setCpassword}/>
+      <View style={styles.viewAgree}>
+      
+       <Text style={{color:'#8c8c8c'}}>Agree With</Text>
+       <Text style={{fontWeight:"bold"}}> Terms & Conditions</Text>
       </View>
-     <View  style={styles.txt}>
-      <Text>Full Name</Text>
-    </View>
-    
+
+
+    <TouchableOpacity 
+      onPress={()=>{
+        Save()
+      }}style={{width:'80%', height:45, backgroundColor:'#0000b3',borderRadius:25,flexDirection:'row',alignItems:"center",justifyContent:"center"}} ><Text style={{color:'#ffffff',fontWeight:"bold"}}>Create Account</Text></TouchableOpacity>
+
+    <View style={styles.viewLogin}>
+     
+       <Text style={{color:'#8c8c8c'}}>Already have an account? </Text>
+       <Text style={{fontWeight:"bold"}}> Login</Text>
+      </View>
+</View>
+      
+
 
      
-    </View>
-  )
-
+  );
 }
-export default InputBox;
