@@ -74,10 +74,23 @@ const styles = StyleSheet.create({
                  borderRadius:25,flexDirection:'row',                                     alignItems:"center",
                  justifyContent:"center"
                  },
-      txtbtn:  {
+      txtBtnCreate:  {
                  color:'#ffffff',
                  fontWeight:"bold"
-                }
+                },
+      btnSubmit:{
+                  width:'80%',
+                   height:45,
+                   backgroundColor:'#0000b3',
+                   borderRadius:25,
+                   flexDirection:'row',
+                   alignItems:"center",
+                  justifyContent:"center"
+
+                 }           
+
+
+
      
-});
+              });
 export default styles;

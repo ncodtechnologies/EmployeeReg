@@ -50,7 +50,7 @@ export default function App() {
     <TouchableOpacity 
       onPress={()=>{
         Save()
-      }}style={{width:'80%', height:45, backgroundColor:'#0000b3',borderRadius:25,flexDirection:'row',alignItems:"center",justifyContent:"center"}} ><Text style={{color:'#ffffff',fontWeight:"bold"}}>Create Account</Text></TouchableOpacity>
+      }}style={styles.btnSubmit} ><Text style={styles.txtBtnCreate}>Create Account</Text></TouchableOpacity>
 
     <View style={styles.viewLogin}>
      
